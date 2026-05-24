@@ -26,11 +26,6 @@ public class Board extends VBox {
     }
 
     public void showStartBoard() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                boardCells[i][j].setInactive();
-            }
-        }
         boardCells[1][2].setActive();
         boardCells[2][1].setActive();
         boardCells[2][2].setActive();
