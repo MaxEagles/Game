@@ -1,11 +1,10 @@
 package org.maxeagles;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -19,11 +18,11 @@ public class Game extends Application {
     public static BoardCell firstCell;
     public static BoardCell secondCell;
 
-    public static Color redColor = Color.INDIANRED;
-    public static Color greenColor = Color.LIGHTGREEN;
-    public static Color blackColor = Color.BLACK;
-    public static Color whiteColor = Color.WHITE;
-    public static Color highlightColor = Color.LIGHTGRAY;
+    public static Color redColor = Color.rgb(234, 0, 42);
+    public static Color greenColor = Color.rgb(2, 177, 101);
+    public static Color blackColor = Color.rgb(16, 15, 15);
+    public static Color whiteColor = Color.rgb(251, 248, 238);
+    public static Color highlightColor = Color.rgb(251, 210, 4);
 
     @Override
     public void start(Stage stage) {
@@ -54,11 +53,17 @@ public class Game extends Application {
     private HBox createHand() {
         HBox hand = new HBox();
         VBox card = new VBox();
-        card.setSpacing(-5);
-        CardCell cell1 = new CardCell(greenColor, 7);
-        CardCell cell2 = new CardCell(redColor, 2);
+        card.setSpacing(-1);
+        CardCell cell1 = new CardCell(greenColor, 7, Pos.CENTER);
+        CardCell cell2 = new CardCell(redColor, 2, Pos.CENTER);
         card.getChildren().add(cell1);
         card.getChildren().add(cell2);
+        card.setBorder(new Border(new BorderStroke(
+                Game.blackColor,
+                BorderStrokeStyle.SOLID,
+                CornerRadii.EMPTY,
+                BorderWidths.DEFAULT
+        )));
         cell1.setPair(cell2);
         cell2.setPair(cell1);
         hand.getChildren().add(card);
