@@ -1,7 +1,5 @@
 package org.maxeagles;
 
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -12,22 +10,18 @@ import javafx.scene.text.Text;
 
 public class CardCell extends StackPane {
     private CardCell pair;
-    private Rectangle border;
     private Rectangle background;
     private Text text;
     private int value;
     private Color color;
 
-    public CardCell(Color color, int value, Pos pos) {
+    public CardCell(Color color, int value) {
         super();
-        this.border = new Rectangle(110, 110, Game.whiteColor);
         this.background = new Rectangle(100, 100, color);
-        this.setAlignment(background, pos);
         this.color = color;
         this.value = value;
         this.text = new Text(String.valueOf(value));
         this.text.setFont(new Font(50));
-        this.getChildren().add(border);
         this.getChildren().add(background);
         this.getChildren().add(text);
         this.setOnMouseClicked(event -> processClicked(event));
@@ -43,7 +37,7 @@ public class CardCell extends StackPane {
 
     private void processClicked(MouseEvent event) {
         Game.chosen = (CardCell) event.getSource();
-        Game.highlightCard(Game.chosen, Game.highlightColor);
+        //Game.highlightCard(Game.chosen, Game.highlightColor);
     }
 
     public Color getColor() {

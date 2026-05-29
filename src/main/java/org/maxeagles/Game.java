@@ -1,14 +1,11 @@
 package org.maxeagles;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -35,7 +32,7 @@ public class Game extends Application {
         scene.setFill(whiteColor);
         scene.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.SECONDARY) {
-                highlightCard(chosen, blackColor);
+                //highlightCard(chosen, blackColor);
                 chosen = null;
                 firstCell = null;
                 secondCell = null;
@@ -52,20 +49,21 @@ public class Game extends Application {
 
     private HBox createHand() {
         HBox hand = new HBox();
-        VBox card = new VBox();
-        card.setSpacing(-1);
-        CardCell cell1 = new CardCell(greenColor, 7, Pos.CENTER);
-        CardCell cell2 = new CardCell(redColor, 2, Pos.CENTER);
-        card.getChildren().add(cell1);
-        card.getChildren().add(cell2);
-        card.setBorder(new Border(new BorderStroke(
-                Game.blackColor,
-                BorderStrokeStyle.SOLID,
-                CornerRadii.EMPTY,
-                BorderWidths.DEFAULT
-        )));
-        cell1.setPair(cell2);
-        cell2.setPair(cell1);
+        Card card = new Card();
+//        VBox card = new VBox();
+//        card.setSpacing(-1);
+//        CardCell cell1 = new CardCell(greenColor, 7);
+//        CardCell cell2 = new CardCell(redColor, 2);
+//        card.getChildren().add(cell1);
+//        card.getChildren().add(cell2);
+//        card.setBorder(new Border(new BorderStroke(
+//                Game.blackColor,
+//                BorderStrokeStyle.SOLID,
+//                CornerRadii.EMPTY,
+//                BorderWidths.DEFAULT
+//        )));
+//        cell1.setPair(cell2);
+//        cell2.setPair(cell1);
         hand.getChildren().add(card);
         return hand;
     }
@@ -73,7 +71,7 @@ public class Game extends Application {
     public static void moveCard() {
         firstCell.getChildren().add(chosen);
         secondCell.getChildren().add(chosen.getPair());
-        highlightCard(chosen, blackColor);
+        //highlightCard(chosen, blackColor);
         chosen = null;
         firstCell = null;
         secondCell = null;

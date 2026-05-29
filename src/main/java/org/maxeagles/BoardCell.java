@@ -1,6 +1,5 @@
 package org.maxeagles;
 
-import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
@@ -58,6 +57,6 @@ public class BoardCell extends StackPane {
     }
 
     private CardCell createCopy(CardCell original) {
-        return new CardCell(original.getColor(), original.getValue(), Pos.CENTER);
+        return new CardCell(original.getColor(), original.getValue());
     }
 }

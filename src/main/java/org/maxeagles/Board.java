@@ -3,7 +3,6 @@ package org.maxeagles;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 public class Board extends VBox {
     private BoardCell[][] boardCells = new BoardCell[5][5];
