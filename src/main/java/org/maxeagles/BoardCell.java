@@ -1,22 +1,24 @@
 package org.maxeagles;
 
+import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 
 public class BoardCell extends StackPane {
-    private Rectangle border;
     private Rectangle background;
+    private Rectangle colorArea;
     private CardCell chosenCopy;
     private boolean isActive;
 
     public BoardCell() {
         super();
-        this.border = new Rectangle(110, 110, Game.blackColor);
-        this.background = new Rectangle(100, 100, Game.whiteColor);
+        this.background = new Rectangle(110, 110, Game.blackColor);
+        this.colorArea = new Rectangle(100, 100, Game.highlightColor);
+        //this.setPadding(new Insets(5));
         setInactive();
-        this.getChildren().add(border);
         this.getChildren().add(background);
+        this.getChildren().add(colorArea);
         this.setOnMouseClicked(event -> processClicked(event));
         this.setOnMouseEntered(event -> processEntered(event));
         this.setOnMouseExited(event -> processExited(event));
@@ -30,6 +32,10 @@ public class BoardCell extends StackPane {
     public void setActive() {
         this.setVisible(true);
         isActive = true;
+    }
+
+    public Rectangle getBack() {
+        return this.background;
     }
 
     private void processClicked(MouseEvent event) {
