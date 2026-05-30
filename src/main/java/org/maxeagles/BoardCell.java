@@ -13,9 +13,8 @@ public class BoardCell extends StackPane {
 
     public BoardCell() {
         super();
-        this.background = new Rectangle(110, 110, Game.blackColor);
+        this.background = new Rectangle(110, 110, Game.whiteColor);
         this.colorArea = new Rectangle(100, 100, Game.highlightColor);
-        //this.setPadding(new Insets(5));
         setInactive();
         this.getChildren().add(background);
         this.getChildren().add(colorArea);
